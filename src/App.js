@@ -1,26 +1,42 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+
+  //state
+  state = {
+    coords:{
+      latitude: 59,
+      longitude: 90
+    }
+  }
+
+  componentDidMount() {
+    //get device location
+    if (navigator.geolocation) {
+
+      navigator.geolocation.getCurrentPosition((position) => {
+        let newCoords = {
+          latitude:position.coords.latitude,
+          longitude:position.coords.longitude
+        }
+
+        this.setState({coords:newCoords});
+
+      })
+    } else {
+      console.log("Pizdec")
+    }
+  }
+
+  render() {
+    return (
+        <div className="App">
+
+        </div>
+    );
+  }
 }
+
 
 export default App;
