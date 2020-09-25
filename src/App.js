@@ -55,11 +55,16 @@ class App extends React.Component {
         }
     }
 
+    //track the input field
+    change = () => {
+        console.log("Changing")
+    }
+
     render() {
         return (
             <div className="App">
                 <div className="container">
-                    <Navbar />
+                    <Navbar changeRegion = {this.change}/>
                     <DisplayWeather weatherData = {this.state.data}/>
                 </div>
             </div>

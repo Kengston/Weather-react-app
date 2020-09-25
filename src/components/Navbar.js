@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Navbar() {
+export default function Navbar(props) {
     return (
         <div className="row">
             <div className="col-md-6">
@@ -9,7 +9,7 @@ export default function Navbar() {
             <div className="col-md-6">
                 <form className="region">
                     <input className="regioninput" placeholder="Enter Location" onChange={(e) => {
-                        console.log(e.target.value) }} />
+                        props.changeRegion() }} />
                 </form>
             </div>
         </div>
