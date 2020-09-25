@@ -1,6 +1,7 @@
 import React from 'react';
 import Axios from "axios";
 import './App.css';
+import DisplayWeather from "./components/DisplayWeather";
 
 class App extends React.Component {
 
@@ -9,6 +10,9 @@ class App extends React.Component {
         coords: {
             latitude: 59,
             longitude: 90
+        },
+        data: {
+
         }
     }
 
@@ -26,6 +30,7 @@ class App extends React.Component {
 
                 //Api call
                 Axios.get(`http://api.weatherstack.com/current?access_key=cc23925749e752253199ee5e54e95751&query=${this.state.coords.latitude},${this.state.coords.longitude}`).then(res => {
+
                     let weatherData = {
                         location: res.data.location.name,
                         temperature: res.data.current.temperature,
@@ -38,6 +43,9 @@ class App extends React.Component {
                         humidity: res.data.current.humidity,
                         img: res.data.current.weather_icons
                     }
+
+                    this.setState({data:weatherData});
+
                 })
             })
         } else {
@@ -48,6 +56,8 @@ class App extends React.Component {
     render() {
         return (
             <div className="App">
+
+                <DisplayWeather />
 
             </div>
         );
