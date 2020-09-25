@@ -8,7 +8,8 @@ export default function Navbar() {
             </div>
             <div className="col-md-6">
                 <form className="region">
-                    <input className="regioninput" placeholder="Enter Location"/>
+                    <input className="regioninput" placeholder="Enter Location" onChange={(e) => {
+                        console.log(e.target.value) }} />
                 </form>
             </div>
         </div>
