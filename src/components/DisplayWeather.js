@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function UserLocation(props) {
 
-    const { temperature, description, location, region, country, wind_speed, pressure, precip, humidity, img } = props.weather;
+    const { temperature, description, location, region, country, wind_speed, pressure, precip, humidity, img } = props.weatherData;
 
     return (
         <div className="user-weather">

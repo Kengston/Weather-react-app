@@ -2,6 +2,7 @@ import React from 'react';
 import Axios from "axios";
 import './App.css';
 import DisplayWeather from "./components/DisplayWeather";
+import Navbar from "./components/Navbar"
 
 class App extends React.Component {
 
@@ -56,9 +57,10 @@ class App extends React.Component {
     render() {
         return (
             <div className="App">
-
-                <DisplayWeather />
-
+                <div className="container">
+                    <Navbar />
+                    <DisplayWeather weatherData = {this.state.data}/>
+                </div>
             </div>
         );
     }
