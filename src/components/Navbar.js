@@ -7,9 +7,9 @@ export default function Navbar(props) {
                 <h1 className="title">Weather-app</h1>
             </div>
             <div className="col-md-6">
-                <form className="region">
+                <form className="region" onSubmit={(e) => props.changeWeather(e)}>
                     <input className="regioninput" placeholder="Enter Location" onChange={(e) => {
-                        props.changeRegion() }} />
+                        props.changeRegion(e.target.value) }} />
                 </form>
             </div>
         </div>
